@@ -5,7 +5,7 @@ import {
   createUserDocumentFromAuth
 } from '../../utils/firebase/firebase.utils'
 import FormInput from '../form-input/form-input.component'
-import Button from '../button/button.component'
+import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component'
 
 const defaultFormFields = {
   displayName: '',
@@ -87,7 +87,7 @@ const SignUpForm = () => {
           required
           onChange={handleChange}
         />
-        <Button buttonType='google'>Sign In</Button>
+        <Button buttonType={BUTTON_TYPE_CLASSES.google}>Sign UP</Button>
       </form>
     </div>
   )
