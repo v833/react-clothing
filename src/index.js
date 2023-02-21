@@ -8,18 +8,22 @@ import { UserProvider } from './contexts/user.context'
 import './index.scss'
 import reportWebVitals from './reportWebVitals'
 
+import { Provider } from 'react-redux'
+import { store } from './store/store'
+
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-  <BrowserRouter>
-    <UserProvider>
-      <CategoriesProvider>
-        <CartProvider>
-          <App />
-        </CartProvider>
-      </CategoriesProvider>
-    </UserProvider>
-  </BrowserRouter>
-
+  <Provider store={store}>
+    <BrowserRouter>
+      <UserProvider>
+        <CategoriesProvider>
+          <CartProvider>
+            <App />
+          </CartProvider>
+        </CategoriesProvider>
+      </UserProvider>
+    </BrowserRouter>
+  </Provider>
   // <React.StrictMode>
   // </React.StrictMode>
 )
