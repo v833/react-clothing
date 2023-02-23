@@ -20,7 +20,8 @@ const Navigation = () => {
   const { isCartOpen } = useContext(CartContext)
   return (
     <Fragment>
-      <NavigationContainer>
+      Hello!
+      {/* <NavigationContainer>
         <LogoContainer to='/'>
           <CrwnLogo className='logo' />
         </LogoContainer>
@@ -37,7 +38,7 @@ const Navigation = () => {
         </NavLinks>
         {isCartOpen && <CartDropdown />}
       </NavigationContainer>
-      <Outlet />
+      <Outlet /> */}
     </Fragment>
   )
 }
