@@ -19,7 +19,7 @@ const loggerMiddleWare = (store) => (next) => (action) => {
   console.log('next state: ', store.getState())
 }
 
-const middleWares = [loggerMiddleWare, logger, thunk].filter(Boolean)
+const middleWares = [logger, thunk].filter(Boolean)
 
 const composeEnhancers = compose(applyMiddleware(...middleWares))
 
