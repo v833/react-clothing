@@ -8,20 +8,23 @@ import App from './App'
 import './index.scss'
 import reportWebVitals from './reportWebVitals'
 
+import { PersistGate } from 'redux-persist/integration/react'
 import { Provider } from 'react-redux'
-import { store } from './store/store'
+import { persistor, store } from './store/store'
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <Provider store={store}>
-    <BrowserRouter>
-      {/* <UserProvider> */}
-      {/* <CategoriesProvider> */}
-      {/* <CartProvider> */}
-      <App />
-      {/* </CartProvider> */}
-      {/* </CategoriesProvider> */}
-      {/* </UserProvider> */}
-    </BrowserRouter>
+    <PersistGate loading={null} persistor={persistor}>
+      <BrowserRouter>
+        {/* <UserProvider> */}
+        {/* <CategoriesProvider> */}
+        {/* <CartProvider> */}
+        <App />
+        {/* </CartProvider> */}
+        {/* </CategoriesProvider> */}
+        {/* </UserProvider> */}
+      </BrowserRouter>
+    </PersistGate>
   </Provider>
   // <React.StrictMode>
   // </React.StrictMode>
