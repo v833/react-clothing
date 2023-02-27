@@ -6,8 +6,9 @@ import Shop from './routes/shop/shop.component.jsx'
 import Checkout from './routes/checkout/checkout.component'
 import { useEffect } from 'react'
 import {
-  createUserDocumentFromAuth,
-  onAuthStateChangedListener
+  // createUserDocumentFromAuth,
+  getCurrentUser
+  // onAuthStateChangedListener
 } from './utils/firebase/firebase.utils'
 import { setCurrentUser } from './store/user/user.action'
 import { useDispatch } from 'react-redux'
@@ -15,15 +16,10 @@ import { useDispatch } from 'react-redux'
 const App = () => {
   const dispatch = useDispatch()
   useEffect(() => {
-    const unsubcribe = onAuthStateChangedListener((user) => {
-      if (user) {
-        createUserDocumentFromAuth(user)
-      }
-      dispatch(setCurrentUser(user))
+    getCurrentUser().then((user) => {
+      console.log(user)
     })
-    // 清理函数, 下一次执行前或销毁时执行
-    return unsubcribe
-  }, [dispatch])
+  }, [])
   return (
     <Routes>
       <Route path='/' element={<Navigation />}>
